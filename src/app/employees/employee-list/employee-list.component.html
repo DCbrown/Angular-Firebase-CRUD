@@ -1,0 +1,28 @@
+<h2 class="text-center">Registered Employees</h2><br>
+<table class="table table-bordered">
+  <thead class="bg-info">
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Office</th>
+    <th>Salary</th>
+    <th>Edit Delete</th>
+  </tr>
+</thead>
+  <tr *ngFor="let employee of empolyeeList | paginate: { itemsPerPage: 10, currentPage: p }">
+    <td>{{employee.name}}</td>
+    <td>{{employee.position}}</td>
+    <td>{{employee.office}}</td>
+    <td>$ {{employee.salary}}</td>
+    <td>
+      <a class="btn" (click)="onEdit(employee)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn" (click)="onDelete(employee.$key)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>
+<pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+
