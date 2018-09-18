@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+  <thead>
+    <tr class="table-active">
+      <th scope="col">Date Added</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Last</th>
+      <th scope="col">Position</th>
+      <th scope="col">Location</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="loaded && employees.length > 0">
+    <tr *ngFor="let employee of employees" [class.table-info]="selectedEmployee === employee">
+      <td>{{employee.date | date: 'shortDate'}}</td>
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.position}}</td>
+      <td>{{employee.location}}</td>
+      <td>${{employee.salary}}</td>
+      <td><i (click)="onSelect(employee)" class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i> <i (click)="onDelete(employee)" class="fa fa-2x fa-times" aria-hidden="true"></i></td>
+    </tr>
+  <tr>
+<div *ngIf="!loaded">
+  <h5>loading...</h5>
+</div>

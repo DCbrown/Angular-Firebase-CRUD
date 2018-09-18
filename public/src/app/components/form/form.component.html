@@ -1,0 +1,32 @@
+<div class="card card-body mb-5">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <label for="Position">First Name</label>
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="firstName" placeholder="First Name">
+        </div>
+        <div class="col">
+          <label for="Position">Last Name</label>
+          <input type="text" class="form-control" name="firstLast" [(ngModel)]="lastName" placeholder="Last Name">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Position">Position</label>
+      <input type="text" class="form-control" name="position" [(ngModel)]="position" placeholder="Manager, Graphic Designer, Web Developer">
+    </div>
+    <div class="form-group">
+      <label for="Salary">Location</label>
+      <input type="text" class="form-control" name="Location" [(ngModel)]="location" placeholder="City, State">
+    </div>
+    <div class="form-group">
+      <label for="Salary">Salary</label>
+      <div class="input-group-prepend">
+          <input type="number" class="form-control" name="salary" [(ngModel)]="salary" placeholder="6000">    
+      </div>
+    </div>
+    <input type="submit" value="Save" class="btn btn-success" [disabled] = "!this.firstName || !this.lastName || !this.position || !this.location || !this.salary">
+    <button type="button" (click)="clearState()" class="btn btn-warning" [hidden] = "!this.firstName && !this.lastName && !this.position && !this.location && !this.salary">Clear</button>
+  </form>
+</div>
